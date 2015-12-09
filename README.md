@@ -10,7 +10,7 @@ As per instructions on the Maddison Project website, please site the data as fol
 | Purpose                                                  | Citation                                                                                                                                                                                             |
 |----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | When using the data                                      | The Maddison-Project, <http://www.ggdc.net/maddison/maddison-project/home.htm>, 2013 version.                                                                                                        |
-| When refering to underlying methodology and main results | Bolt, J. and J. L. van Zanden (2014). The Maddison Project: collaborative research on historical national accounts. The Economic History Review, 67 (3): 627–651. When using individual country data |
+| When refering to underlying methodology and main results | Bolt, J. and J. L. van Zanden (2014). The Maddison Project: collaborative research on historical national accounts. The Economic History Review, 67 (3): 627-651. When using individual country data |
 | When using individual country data                       | See country-source references in the appendix of Bolt and van Zanden (2014).                                                                                                                         |
 
 Example use
@@ -42,17 +42,20 @@ str(maddison)
 head(maddison)
 ```
 
-    ## Source: local data frame [6 x 9]
-    ## 
     ##         year country_original gdp_pc country iso2c iso3c continent
-    ##       (date)            (chr)  (dbl)   (chr) (chr) (chr)     (chr)
     ## 1 0001-01-01          Austria     NA Austria    AT   AUT    Europe
     ## 2 0730-01-01          Austria     NA Austria    AT   AUT    Europe
     ## 3 1000-01-01          Austria     NA Austria    AT   AUT    Europe
     ## 4 1150-01-01          Austria     NA Austria    AT   AUT    Europe
     ## 5 1280-01-01          Austria     NA Austria    AT   AUT    Europe
     ## 6 1300-01-01          Austria     NA Austria    AT   AUT    Europe
-    ## Variables not shown: region (chr), aggregate (lgl)
+    ##           region aggregate
+    ## 1 Western Europe     FALSE
+    ## 2 Western Europe     FALSE
+    ## 3 Western Europe     FALSE
+    ## 4 Western Europe     FALSE
+    ## 5 Western Europe     FALSE
+    ## 6 Western Europe     FALSE
 
 ``` r
 library(ggplot2)
