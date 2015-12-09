@@ -24,42 +24,29 @@ follows:
 | Purpose | Citation |
 |--------------|---------------|
 | When using the data | The Maddison-Project, <http://www.ggdc.net/maddison/maddison-project/home.htm>, 2013 version.  |
-| When refering to underlying methodology and main results | Bolt, J. and J. L. van Zanden (2014). The Maddison Project: collaborative research on historical national accounts. The Economic History Review, 67 (3): 627–651. When using individual country data |
+| When refering to underlying methodology and main results | Bolt, J. and J. L. van Zanden (2014). The Maddison Project: collaborative research on historical national accounts. The Economic History Review, 67 (3): 627-651. When using individual country data |
 | When using individual country data | See country-source references in the appendix of Bolt and van Zanden (2014). |
 
 ## Example use
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(maddison)
+library(ggplot2)
+
 str(maddison)
 head(maddison)
 ```
 
-```{r, fig.width = 6, fig.height = 4, fig.align='center', warning=FALSE}
-library(ggplot2)
-library(dplyr)
-library(scales)
+```{r, fig.width = 6, fig.height = 4, warning=FALSE, message=FALSE}
+df <- subset(maddison, 
+             year >= as.Date("1800-01-01") &
+             iso2c %in% c("DE", "FR", "IT", "UK", "US"))
 
-# Data frame with annotations
-df_annotate <- data.frame(
-  xmin = as.Date(c("1914-01-01", "1939-01-01")),
-  xmax = as.Date(c("1918-01-01", "1945-01-01")),
-  ymin = c(900, 900), ymax = c(3e4, 3e4),
-  label = c("WWI", "WW2"))
-
-maddison %>%
-  filter(iso2c %in% c("DE", "FR", "IT", "UK", "US")) %>%
-  filter(year >= as.Date("1800-01-01")) %>%
-  ggplot() +
-  geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
-            data = df_annotate, fill = "grey50", alpha = 0.25) +
-  geom_text(aes(label = label, x = xmin, y = ymax), data = df_annotate, 
-            vjust = 0, hjust = 0, nudge_y = 0.02, size = 3) +
-  geom_line(aes(x = year, y = gdp_pc, color = country)) +
-  scale_y_log10(labels = comma, breaks = pretty_breaks(8)) +
-  coord_cartesian(ylim = c(900, 35000)) +
-  theme_bw(8) +
-  labs(x = NULL, y = "GDP per capita (1990 Int. GK$)\n", color = NULL,
+ggplot(df, aes(x = year, y = gdp_pc, color = country)) +
+  geom_line() +
+  scale_y_log10() +
+  theme_bw() +
+  labs(x = NULL, y = "GDP per capita (1990 Int. GK dollars)\n", color = NULL,
        title = "GDP per capita (1800-2010)")
 ```
 

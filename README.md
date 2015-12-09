@@ -10,7 +10,7 @@ As per instructions on the Maddison Project website, please site the data as fol
 | Purpose                                                  | Citation                                                                                                                                                                                             |
 |----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | When using the data                                      | The Maddison-Project, <http://www.ggdc.net/maddison/maddison-project/home.htm>, 2013 version.                                                                                                        |
-| When refering to underlying methodology and main results | Bolt, J. and J. L. van Zanden (2014). The Maddison Project: collaborative research on historical national accounts. The Economic History Review, 67 (3): 627–651. When using individual country data |
+| When refering to underlying methodology and main results | Bolt, J. and J. L. van Zanden (2014). The Maddison Project: collaborative research on historical national accounts. The Economic History Review, 67 (3): 627-651. When using individual country data |
 | When using individual country data                       | See country-source references in the appendix of Bolt and van Zanden (2014).                                                                                                                         |
 
 Example use
