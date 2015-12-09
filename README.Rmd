@@ -41,7 +41,7 @@ str(maddison)
 head(maddison)
 ```
 
-```{r, plot}
+```{r plot, fig.width = 4, fig.height = 3, fig.align='center', warning=FALSE}
 library(ggplot2)
 library(dplyr)
 library(scales)

@@ -82,9 +82,7 @@ maddison %>%
        title = "GDP per capita (1800-2010)")
 ```
 
-    ## Warning: Removed 20 rows containing missing values (geom_path).
-
-![](plot-1.png)
+<img src="plot-1.png" title="" alt="" style="display: block; margin: auto;" />
 
 Disclaimer
 ----------
