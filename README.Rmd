@@ -41,7 +41,7 @@ str(maddison)
 head(maddison)
 ```
 
-```{r plot, fig.width = 6, fig.height = 3, fig.align='center', warning=FALSE, message=FALSE}
+```{r line_plot, fig.width = 6, fig.height = 3, fig.align='center', warning=FALSE, message=FALSE}
 
 library(ggplot2)
 library(dplyr)

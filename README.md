@@ -82,7 +82,7 @@ maddison %>%
        title = "GDP per capita (1800-2010)")
 ```
 
-<img src="plot-1.png" title="" alt="" style="display: block; margin: auto;" />
+<img src="line_plot-1.png" title="" alt="" style="display: block; margin: auto;" />
 
 Disclaimer
 ----------
