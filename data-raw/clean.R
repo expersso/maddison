@@ -9,7 +9,7 @@ tmp <- tempfile(fileext = ".xlsx")
 download.file(url, tmp, mode = "wb")
 
 maddison <- read_excel(tmp, skip = 2)
-# unlink(tmp)
+unlink(tmp)
 
 names(maddison)[1] <- "year"
 maddison <- maddison[, !is.na(names(maddison))]
