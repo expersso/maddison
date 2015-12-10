@@ -1,3 +1,5 @@
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/maddison)](http://cran.r-project.org/package=maddison) [![](http://cranlogs.r-pkg.org/badges/grand-total/maddison)](http://cran.r-project.org/web/packages/maddison)
+
 Maddison Project Dataset
 ------------------------
 
