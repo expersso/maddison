@@ -3,8 +3,15 @@ Type: Package
 Title: Maddison Project Database
 Version: 0.2
 Date: 2019-05-07
-Authors@R: person("Eric", "Persson", email = "expersso5@gmail.com",
-    role = c("aut", "cre"))
+Authors@R: 
+    c(person(given = "Eric",
+             family = "Persson",
+             role = c("aut", "cre"),
+             email = "expersso5@gmail.com"),
+      person(given = "Francois",
+             family = "Briatte",
+             role = "ctb",
+             email = "f.briatte@gmail.com"))
 Description: Contains the Maddison Project 2018 database, which provides 
     estimates of GDP per capita for all countries in the world between AD 1 and
     2016. See http://www.ggdc.net/maddison for more information.
