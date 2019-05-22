@@ -1,5 +1,5 @@
 ---
-title: "Maddison Project Dataset"
+title: "Maddison Project Database"
 author: "Eric Persson"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -11,25 +11,19 @@ vignette: >
 
 ## Introduction
 
-This package contains the [Maddison Project
-Dataset](http://www.ggdc.net/maddison/maddison-project/data.htm) with estimates
-of GDP per capita for all countries in the world between AD 1 and 2010 in a
-format amenable to analysis in R.
+This package contains the [Maddison Project Database](http://www.ggdc.net/maddison), which contains estimates of GDP per capita for all countries in the world between AD 1 and 2016, in a format amenable to analysis in R.
 
-The database was last updated in January 2013.
+The database was last updated in 2018.
 
-As per instructions on the Maddison Project website, please site the data as
-follows:
+As per instructions on the Maddison Project website, please site the data as follows:
 
-| Purpose | Citation |
-|--------------|---------------|
-| When using the data | The Maddison-Project, <http://www.ggdc.net/maddison/maddison-project/home.htm>, 2013 version.  |
-| When refering to underlying methodology and main results | Bolt, J. and J. L. van Zanden (2014). The Maddison Project: collaborative research on historical national accounts. The Economic History Review, 67 (3): 627-651. When using individual country data |
-| When using individual country data | See country-source references in the appendix of Bolt and van Zanden (2014). |
+> __Attribution requirement__ - When using these data (for whatever purpose), please make the following reference:
+> - Maddison Project Database, version 2018. Bolt, Jutta, Robert Inklaar, Herman de Jong and Jan Luiten van Zanden (2018), “Rebasing ‘Maddison’: new income comparisons and the shape of long-run economic development”, [Maddison Project Working paper 10](https://www.rug.nl/ggdc/historicaldevelopment/maddison/research)
+> - For the references to the original research on individual countries, see Appendix A of Bolt et al. (2018).
 
 ## Example use
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning = FALSE, message = FALSE}
 library(maddison)
 library(ggplot2)
 
@@ -37,22 +31,19 @@ str(maddison)
 head(maddison)
 ```
 
-```{r, fig.width = 6, fig.height = 4, warning=FALSE, message=FALSE}
+```{r, fig.width = 6, fig.height = 4, warning = FALSE, message = FALSE}
 df <- subset(maddison, 
-             year >= as.Date("1800-01-01") &
+             year >= 1800 &
              iso2c %in% c("DE", "FR", "IT", "UK", "US"))
 
-ggplot(df, aes(x = year, y = gdp_pc, color = country)) +
+ggplot(df, aes(x = year, y = rgdpnapc, color = country)) +
   geom_line() +
   scale_y_log10() +
   theme_bw() +
-  labs(x = NULL, y = "GDP per capita (1990 Int. GK dollars)\n", color = NULL,
+  labs(x = NULL, y = "GDP per capita (2011 U.S. dollars)\n", color = NULL,
        title = "GDP per capita (1800-2010)")
 ```
 
 ## Disclaimer
 
-This package is not affiliated with, nor endorsed by, the Maddison Project. I
-aim to update it whenever the database is updated. If you ever see that it
-is out-of-date, don't hesitate to send a pull request and/or remind me to update
-it.
+This package is not affiliated with, nor endorsed by, the Maddison Project. I aim to update it whenever the database is updated. If you ever see that it is out-of-date, don't hesitate to send a pull request and/or remind me to update it.

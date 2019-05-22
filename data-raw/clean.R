@@ -1,36 +1,35 @@
-library(readxl)
-library(dplyr)
-library(tidyr)
-library(magrittr)
 library(countrycode)
+library(readxl)
 
-url <- "http://www.ggdc.net/maddison/maddison-project/data/mpd_2013-01.xlsx"
+url <- "https://www.rug.nl/ggdc/historicaldevelopment/maddison/data/mpd2018.xlsx"
 tmp <- tempfile(fileext = ".xlsx")
 download.file(url, tmp, mode = "wb")
 
-maddison <- read_excel(tmp, skip = 2)
+maddison <- readxl::read_excel(tmp, sheet = "Full data")
 unlink(tmp)
 
-names(maddison)[1] <- "year"
-maddison <- maddison[, !is.na(names(maddison))]
+# doesn't convert "Côte d'Ivoire" properly
+# maddison$country <- iconv(maddison$country, "UTF-8", "ASCII")
 
-maddison$year %<>% paste0("-01-01") %>% as.Date()
+maddison$country <- countrycode::countrycode(maddison$country, "country.name", "country.name")
 
-maddison %<>%
-  gather(country_original, gdp_pc, -year) %>%
-  mutate(country_original = as.character(country_original) %>% str_trim())
-
-maddison$country <- maddison$country_original %>%
-  plyr::revalue(c("England/GB/UK" = "UK",
-                  "Cape Colony/ South Africa" = "South Africa",
-                  "Haïti" = "Haiti"))
-
-maddison$country_original %<>% iconv("utf-8", "ASCII")
-
-maddison$country <- countrycode(maddison$country, "country.name", "country.name")
-
-for(var in c("iso2c", "iso3c", "continent", "region")) {
-  maddison[[var]] <- countrycode(maddison$country, "country.name", var)
+for (i in c("iso2c", "iso3c", "continent", "region")) {
+  maddison[[ i ]] <- countrycode::countrycode(maddison$country, "country.name", i)
 }
 
-maddison$aggregate <- is.na(maddison$iso2c)
+# former countries with no ISO country code
+
+# unique(maddison$country[ is.na(maddison$iso2c)     ])
+# unique(maddison$country[ is.na(maddison$iso3c)     ])
+# unique(maddison$country[ is.na(maddison$continent) ])
+# unique(maddison$country[ is.na(maddison$region)    ])
+
+# Czechoslovakia
+# (imputed from Czechia and Slovakia)
+maddison$continent[ maddison$country == "Czechoslovakia" ] <- "Europe"
+maddison$region[ maddison$country == "Czechoslovakia" ] <- "Eastern Europe"
+
+# Yugoslavia
+# (imputed from Bosnia & Herzegovina and Serbia)
+maddison$continent[ maddison$country == "Yugoslavia" ] <- "Europe"
+maddison$region[ maddison$country == "Yugoslavia" ] <- "Southern Europe"
