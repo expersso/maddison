@@ -1,7 +1,7 @@
 ---
 output:
   md_document:
-    variant: markdown_github
+    variant: gfm
 ---
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/maddison)](http://cran.r-project.org/package=maddison)
@@ -23,9 +23,8 @@ As per instructions on the Maddison Project website, please site the data as fol
 ## Example use
 
 ```{r, echo = FALSE}
-knitr::opts_chunk$set(fig.path = "")
+knitr::opts_chunk$set(fig.path = "man/figures/README-")
 ```
-
 
 ```{r, eval = FALSE}
 # to install from Github

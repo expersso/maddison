@@ -15,6 +15,9 @@
 #' original database using the \code{countrycode} package.}
 #' \item{\code{cgdppc}}{Current GDP per capita in 2011 U.S. dollars}
 #' \item{\code{rgdpnapc}}{Real GDP per capita in 2011 U.S. dollars}
+#' \item{\code{pop}}{Population}
+#' \item{\code{i_cig}}{Whether observation is extrapolated/interpolated/benchmark}
+#' \item{\code{i_bm}}{Type of benchmark estimate}
 #' \item{\code{iso2c}}{Country ISO-2C code (missing for Czechoslovakia and
 #' Yugoslavia)}
 #' \item{\code{iso3c}}{Country ISO-3C code (missing for Czechoslovakia and
