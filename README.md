@@ -5,7 +5,7 @@
 
 This package contains the [Maddison Project
 Database](http://www.ggdc.net/maddison), which contains estimates of GDP
-per capita for all countries in the world between AD 1 and 2016, in a
+per capita for all countries in the world between AD 1 and 2022, in a
 format amenable to analysis in R.
 
 The database was last updated in 2022.
