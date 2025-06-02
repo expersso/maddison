@@ -3,7 +3,7 @@
 #' This package contains the
 #' \href{http://www.ggdc.net/maddison}{Maddison Project Database}, which
 #' contains estimates of GDP per capita for all countries in the world between
-#' AD 1 and 2016, in a format amenable to analysis in R.
+#' AD 1 and 2022, in a format amenable to analysis in R.
 #'
 #' @format A data frame with 12 variables:
 #' \describe{
@@ -14,7 +14,7 @@
 #' \item{\code{country}}{Country name, standardized from those found in the
 #' original database using the \code{countrycode} package.}
 #' \item{\code{cgdppc}}{Current GDP per capita in 2011 U.S. dollars}
-#' \item{\code{rgdpnapc}}{Real GDP per capita in 2011 U.S. dollars}
+#' \item{\code{gdppc}}{Real GDP per capita in 2011 U.S. dollars}
 #' \item{\code{pop}}{Population}
 #' \item{\code{i_cig}}{Whether observation is extrapolated/interpolated/benchmark}
 #' \item{\code{i_bm}}{Type of benchmark estimate}
@@ -26,7 +26,7 @@
 #' \item{\code{region}}{Country region}
 #' }
 #'
-#' The database was last updated in 2018.
+#' The database was last updated in 2022.
 #'
 #' As per instructions on the Maddison Project website, please site the data as
 #' follows:

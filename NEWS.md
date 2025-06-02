@@ -1,6 +1,6 @@
-# maddison 0.2
+# maddison 0.4
 
-* Updated to download the Maddison Project Database 2018.
+* Updated to download the Maddison Project Database 2023.
 
 ## Breaking changes
 
