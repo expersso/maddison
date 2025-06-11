@@ -51,18 +51,18 @@ df_annotate <- data.frame(
   label = c("WW1", "WW2"))
 
 maddison %>%
-  filter(iso2c %in% c("DE", "FR", "IT", "UK", "US")) %>%
+  filter(iso2c %in% c("DEU", "FRA", "ITA", "GBR", "USA")) %>%
   filter(year >= 1800) %>%
   ggplot() +
   geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
             data = df_annotate, fill = "grey50", alpha = 0.25) +
   geom_text(aes(label = label, x = xmin, y = ymax), data = df_annotate, 
             vjust = 0, hjust = 0, nudge_y = 0.02, size = 3) +
-  geom_line(aes(x = year, y = rgdpnapc, color = country)) +
+  geom_line(aes(x = year, y = gdppc, color = country)) +
   scale_y_log10(labels = comma, breaks = pretty_breaks(8)) +
   theme_bw(8) +
   labs(x = NULL, y = "GDP per capita (2011 US$)\n", color = NULL,
-       title = "GDP per capita (1800-2016)")
+       title = "GDP per capita (1800-2022)")
 ```
 
 ## Disclaimer

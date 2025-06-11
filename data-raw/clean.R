@@ -1,7 +1,7 @@
 library(countrycode)
 library(readxl)
 
-url <- "https://www.rug.nl/ggdc/historicaldevelopment/maddison/data/mpd2018.xlsx"
+url <- "https://dataverse.nl/api/access/datafile/421302"
 tmp <- tempfile(fileext = ".xlsx")
 download.file(url, tmp, mode = "wb")
 
@@ -14,7 +14,7 @@ unlink(tmp)
 maddison$country <- countrycode::countrycode(maddison$country, "country.name", "country.name")
 
 for (i in c("iso2c", "iso3c", "continent", "region")) {
-  maddison[[ i ]] <- countrycode::countrycode(maddison$country, "country.name", i)
+  maddison[[ i ]] <- countrycode::countrycode(maddison$country, origin = "country.name", destination = i)
 }
 
 # former countries with no ISO country code

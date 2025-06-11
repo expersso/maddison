@@ -5,17 +5,17 @@
 
 This package contains the [Maddison Project
 Database](http://www.ggdc.net/maddison), which contains estimates of GDP
-per capita for all countries in the world between AD 1 and 2016, in a
+per capita for all countries in the world between AD 1 and 2022, in a
 format amenable to analysis in R.
 
-The database was last updated in 2018.
+The database was last updated in 2022.
 
 As per instructions on the Maddison Project website, please site the
 data as follows:
 
 > **Attribution requirement** - When using these data (for whatever
 > purpose), please make the following reference: - Maddison Project
-> Database, version 2018. Bolt, Jutta, Robert Inklaar, Herman de Jong
+> Database, version 2022. Bolt, Jutta, Robert Inklaar, Herman de Jong
 > and Jan Luiten van Zanden (2018), “Rebasing ‘Maddison’: new income
 > comparisons and the shape of long-run economic development”, [Maddison
 > Project Working
@@ -82,14 +82,14 @@ df_annotate <- data.frame(
   label = c("WW1", "WW2"))
 
 maddison %>%
-  filter(iso2c %in% c("DE", "FR", "IT", "UK", "US")) %>%
+  filter(iso2c %in% c("DEU", "FRA", "ITA", "GBR", "USA")) %>%
   filter(year >= 1800) %>%
   ggplot() +
   geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
             data = df_annotate, fill = "grey50", alpha = 0.25) +
   geom_text(aes(label = label, x = xmin, y = ymax), data = df_annotate, 
             vjust = 0, hjust = 0, nudge_y = 0.02, size = 3) +
-  geom_line(aes(x = year, y = rgdpnapc, color = country)) +
+  geom_line(aes(x = year, y = gdppc, color = country)) +
   scale_y_log10(labels = comma, breaks = pretty_breaks(8)) +
   theme_bw(8) +
   labs(x = NULL, y = "GDP per capita (2011 US$)\n", color = NULL,
